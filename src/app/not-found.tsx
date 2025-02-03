@@ -1,9 +1,15 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+
+export const metadata = {
+  title: "PageNot Found",
+  description: "Could not find requested resource",
+};
+
 export default function NotFound() {
   return (
-    <div className="p-4">
+    <div className="w-full p-4">
       <Link
         className="mb-2 flex w-2/12 h-20 items-end justify-start rounded bg-blue-600 p-4 md:h-40"
         href="/"
@@ -16,7 +22,14 @@ export default function NotFound() {
         </div>
       </Link>
       <div className="flex flex-col items-center justify-center gap-4 mt-24">
-        <h2 className="text-2xl font-bold">Not Found</h2>
+        <Image
+          src="/404.png"
+          alt="404"
+          width={200}
+          height={200}
+          className="w-1/2"
+        />
+        <h2 className="text-2xl font-bold">Page Not Found!</h2>
         <p className="text-sm text-muted-foreground">
           Could not find requested resource
         </p>
