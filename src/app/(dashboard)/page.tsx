@@ -1,4 +1,10 @@
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "Dashboard",
+};
 
 export default function Home() {
   return (
