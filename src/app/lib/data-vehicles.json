@@ -1,0 +1,76 @@
+{
+	"data": [
+		{
+			"last_name": "de Oliveira",
+			"first_name": "Delba",
+			"Vehicles": [
+				{
+					"id": "clwmn1amh0001jwfkxwi8clqj",
+					"make": "Honda",
+					"model": "Civic",
+					"year": 2020,
+					"plate_number": "DEF5678"
+				},
+				{
+					"id": "clwmn1amo0003jwfkuep4so7a",
+					"make": "Toyota",
+					"model": "Camry",
+					"year": 2018,
+					"plate_number": "ABC1234"
+				}
+			]
+		},
+		{
+			"last_name": "Robinson",
+			"first_name": "Lee",
+			"Vehicles": [
+				{
+					"id": "clwmn1ams0009jwfkijpewn97",
+					"make": "Ford",
+					"model": "F-150",
+					"year": 2020,
+					"plate_number": "EEF572"
+				}
+			]
+		},
+		{
+			"last_name": "Simpson",
+			"first_name": "Hector",
+			"Vehicles": [
+				{
+					"id": "clwmn1amp0005jwfk62ehviay",
+					"make": "Mitsubishi",
+					"model": "Lancer",
+					"year": 2012,
+					"plate_number": "EIF500"
+				}
+			]
+		},
+		{
+			"last_name": "Tey",
+			"first_name": "Steven",
+			"Vehicles": [
+				{
+					"id": "clwmn1amu000bjwfkkj9cnt82",
+					"make": "Mitsubishi",
+					"model": "Outlander",
+					"year": 2015,
+					"plate_number": "EEF568"
+				}
+			]
+		},
+		{
+			"last_name": "Dietz",
+			"first_name": "Steph",
+			"Vehicles": [
+				{
+					"id": "clwmn1amr0007jwfkendu50u0",
+					"make": "Toyota",
+					"model": "Sienna",
+					"year": 2018,
+					"plate_number": "EEF571"
+				}
+			]
+		}
+	]
+}
