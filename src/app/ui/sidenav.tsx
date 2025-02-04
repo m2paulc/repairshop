@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NavLinks from "@/app/ui/nav-links";
 import Image from "next/image";
+import { User } from "@/app/ui/user";
 
 export default function SideNav() {
   return (
@@ -19,6 +20,7 @@ export default function SideNav() {
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <NavLinks />
         <div className="hidden h-auto w-full grow rounded bg-gray-50 md:block"></div>
+        <User />
       </div>
     </div>
   );
