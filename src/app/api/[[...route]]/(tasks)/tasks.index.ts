@@ -4,6 +4,7 @@ import * as routes from "./tasks.routes";
 
 const router = createRouter()
   .openapi(routes.list, handlers.listHandler)
-  .openapi(routes.create, handlers.createHandler);
+  .openapi(routes.create, handlers.createHandler)
+  .openapi(routes.getById, handlers.getByIdHandler);
 
 export default router;

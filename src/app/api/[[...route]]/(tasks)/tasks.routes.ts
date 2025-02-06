@@ -3,7 +3,8 @@ import { createRoute } from "@hono/zod-openapi";
 import { jsonContent, jsonContentRequired } from "stoker/openapi/helpers";
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import { insertTasksSchema, selectTasksSchema } from "@/db/schema";
-import { createErrorSchema } from "stoker/openapi/schemas";
+import { createErrorSchema, IdParamsSchema } from "stoker/openapi/schemas";
+import { notFoundSchema } from "@/lib/constants";
 
 const tags = ["Tasks"];
 
@@ -37,5 +38,27 @@ export const create = createRoute({
   },
 });
 
+// Get a task by ID
+export const getById = createRoute({
+  path: "/api/tasks/{id}",
+  method: "get",
+  tags,
+  request: {
+    params: IdParamsSchema,
+  },
+  responses: {
+    [HttpStatusCodes.OK]: jsonContent(selectTasksSchema, "Selected To-Do Item"),
+    [HttpStatusCodes.NOT_FOUND]: jsonContent(
+      notFoundSchema,
+      "To-Do Item not found"
+    ),
+    [HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
+      createErrorSchema(IdParamsSchema),
+      "Invalid Id Error"
+    ),
+  },
+});
+
 export type ListRoute = typeof list;
 export type CreateRoute = typeof create;
+export type GetByIdRoute = typeof getById;
