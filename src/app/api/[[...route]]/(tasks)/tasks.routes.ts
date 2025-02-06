@@ -2,6 +2,7 @@ import { z } from "zod";
 import { createRoute } from "@hono/zod-openapi";
 import { jsonContent } from "stoker/openapi/helpers";
 import * as HttpStatusCodes from "stoker/http-status-codes";
+import { selectTasksSchema } from "@/db/schema";
 
 const tags = ["Tasks"];
 
@@ -11,13 +12,7 @@ export const list = createRoute({
   tags,
   responses: {
     [HttpStatusCodes.OK]: jsonContent(
-      z.array(
-        z.object({
-          title: z.string(),
-          description: z.string(),
-          done: z.boolean(),
-        })
-      ),
+      z.array(selectTasksSchema),
       "List of To-Do Items"
     ),
   },
