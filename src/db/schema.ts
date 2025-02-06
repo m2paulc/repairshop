@@ -8,7 +8,10 @@ export const tasksTable = pgTable("tasks", {
   description: text("description").notNull(),
   done: boolean("done").notNull().default(false),
   createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
-  updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { mode: "date", precision: 3 })
+    .notNull()
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
 
 export const selectTasksSchema = createSelectSchema(tasksTable);
@@ -22,3 +25,5 @@ export const insertTasksSchema = createInsertSchema(tasksTable, {
   createdAt: true,
   updatedAt: true,
 });
+
+export const updateTasksSchema = insertTasksSchema.partial();
