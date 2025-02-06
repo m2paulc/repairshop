@@ -1,5 +1,6 @@
 import { boolean, serial, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
+import { z } from "zod";
 
 export const tasksTable = pgTable("tasks", {
   id: serial("id").primaryKey(),
@@ -11,3 +12,13 @@ export const tasksTable = pgTable("tasks", {
 });
 
 export const selectTasksSchema = createSelectSchema(tasksTable);
+
+export const insertTasksSchema = createInsertSchema(tasksTable, {
+  title: z.string().min(1).max(255),
+  description: z.string().min(1),
+  done: z.boolean().default(false),
+}).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});

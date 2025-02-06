@@ -10,11 +10,28 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
   {
+    plugins: ["check-file", "n"],
     rules: {
       "node/prefer-global/process": ["off"],
       "node/no-process-env": ["error"],
+      "prefer-arrow-callback": ["error"],
+      "prefer-template": ["error"],
+      "check-file/filename-naming-convention": [
+        "error",
+        {
+          convention: "kebab-case",
+          allowed: ["^[a-z0-9]+$", "^[a-z0-9]+-[a-z0-9]+$"],
+          forbidden: ["^[A-Z]+$", "^[A-Z]+-[A-Z]+$"],
+        },
+      ],
+      "check-file/folder-naming-convention": [
+        "error",
+        {
+          convention: "kebab-case",
+        },
+      ],
     },
   },
 ];
