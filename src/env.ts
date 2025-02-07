@@ -5,8 +5,12 @@ import { expand } from "dotenv-expand";
 expand(config());
 
 const envSchema = z.object({
-  NODE_ENV: z.enum(["development", "production"]).default("development"),
-  LOG_LEVEL: z.enum(["debug", "info", "warn", "error"]).default("debug"),
+  NODE_ENV: z
+    .enum(["development", "production", "test"])
+    .default("development"),
+  LOG_LEVEL: z
+    .enum(["debug", "info", "warn", "error", "silent"])
+    .default("debug"),
   DATABASE_URL: z.string().url(),
 });
 

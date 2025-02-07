@@ -98,6 +98,10 @@ export const remove = createRoute({
       createErrorSchema(IdParamsSchema),
       "Task not Found"
     ),
+    [HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
+      createErrorSchema(IdParamsSchema),
+      "Invalid Id Error"
+    ),
   },
 });
 
